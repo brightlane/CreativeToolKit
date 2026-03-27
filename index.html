@@ -574,3 +574,245 @@
 
           <p><strong>Bloque con respuesta a la intención:</strong></p>
           <p>Los expertos recomiendan usar una suite integrada (como la de Wondershare) porque centraliza format
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <span class="sticky-cta-text">Ready to try all tools at once?</span>
+    <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=sticky&utm_medium=cta&utm_campaign=global_wondershare" class="btn btn-sm">Get the best deals here</a>
+  </div>
+
+  <!-- Exit‑intent popup (only once per session) -->
+  <div class="popup-backdrop" id="exit-popup">
+    <div class="popup-content">
+      <h2 class="popup-title">Don’t miss out on the best offers</h2>
+      <p class="popup-text">You’re just one click away from getting the best deals on Filmora, PDFelement, EdrawMax, Dr.Fone, MobileTrans, FamiSafe, and more tools in one place.</p>
+      <div>
+        <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=popup&utm_medium=exit&utm_campaign=global_wondershare" class="btn">Go to the offers</a>
+        <button type="button" class="btn btn-sm popup-btn-close" id="popup-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Tip section -->
+  <section id="daily-tip">
+    <div class="container">
+      <div class="lang-block active" data-lang="en">
+        <h2 class="section-title">Daily Tip</h2>
+        <small id="tip-date">Tip for March 27, 2026</small>
+        <div class="tip-block">
+          <div class="tip-title">How to turn any video into a TikTok‑ready clip with Filmora</div>
+          <p class="tip-text">Use Filmora’s auto‑cut, auto‑reframe, and text‑to‑speech features to turn a long video into a vertical TikTok clip in under 5 minutes. Export in 9:16 resolution for best results.</p>
+        </div>
+      </div>
+      <div class="lang-block" data-lang="es">
+        <h2 class="section-title">Consejo del día</h2>
+        <small id="tip-date-es">Consejo para 27 de marzo de 2026</small>
+        <div class="tip-block">
+          <div class="tip-title">Cómo convertir cualquier vídeo en un clip listo para TikTok con Filmora</div>
+          <p class="tip-text">Usa los recortes automáticos, marcos automáticos y la función de texto‑a‑voz de Filmora para convertir un vídeo largo en un clip vertical para TikTok en menos de 5 minutos.</p>
+        </div>
+      </div>
+      <div class="lang-block" data-lang="fr">
+        <h2 class="section-title">Conseil du jour</h2>
+        <small id="tip-date-fr">Conseil pour le 27 mars 2026</small>
+        <div class="tip-block">
+          <div class="tip-title">Comment transformer n’importe quelle vidéo en contenu TikTok avec Filmora</div>
+          <p class="tip-text">Utilisez les fonctions de coupe automatique, de cadrage vertical et de texte vers voix de Filmora pour créer un clip TikTok prêt à l’emploi en quelques minutes.</p>
+        </div>
+      </div>
+      <!-- More language tip blocks can be added following the same pattern -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#howto">How‑To</a>
+        <a href="#comparisons">Comparisons</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Legal Notice</a>
+        <a href="https://example.com/contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="YouTube"> YouTube logo image</a>
+      </div>
+      <div class="footer-meta">
+        <p>Business / Entity name: CreativeToolSuite LLC</p>
+        <p>Contact email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+        <p class="current-year">© 2023–<script>document.write(new Date().getFullYear())</script> CreativeToolSuite LLC. All rights reserved.</p>
+        <p>Updated: March 2026</p>
+      </div>
+      <p>This website is a third‑party information and comparison resource, not an official partner of Wondershare. All product names and brands are used for educational and comparison purposes only and are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Language switching
+    const langButtons = document.querySelectorAll('.lang-button');
+    const langBlocks = document.querySelectorAll('.lang-block');
+    const links = document.querySelectorAll('.nav-link');
+
+    function showLang(lang) {
+      langBlocks.forEach(b => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      langButtons.forEach(b => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      // Dummy schema update (you can extend this to full Product/FAQ/Review schema)
+      const titleElem = document.querySelector(`.lang-block[data-lang="${lang}"] h1`);
+      const descElem = document.querySelector(`.lang-block[data-lang="${lang}"] p`);
+      const titleText = titleElem ? titleElem.textContent.trim() : 'CreativeToolSuite';
+      const descText = descElem ? descElem.textContent.trim() : '';
+
+      const schemaJson = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": titleText,
+        "url": window.location.href,
+        "description": descText
+      };
+      document.getElementById('schema-json').textContent = JSON.stringify(schemaJson);
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        showLang(lang);
+        window.history.replaceState({}, '', window.location.pathname + '?lang=' + lang);
+      });
+    });
+
+    // Current language from URL or localStorage
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    const storedLang = localStorage.getItem('userLang');
+    const supportedLangs = ['en','es','fr','de','zh','ja','ru','ar','pt','it'];
+    let lang = storedLang && supportedLangs.includes(storedLang) ? storedLang : 'en';
+    if (langParam && supportedLangs.includes(langParam)) {
+      lang = langParam;
+    }
+    showLang(lang);
+    localStorage.setItem('userLang', lang);
+
+    // Sticky nav highlight
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('data-href') || e.currentTarget.getAttribute('href').replace('#', '');
+        const section = document.getElementById(href);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Daily Tip date update
+    const formatDate = (date) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    };
+    const now = new Date();
+    document.querySelectorAll('#tip-date, #tip-date-es, #tip-date-fr').forEach(el => {
+      if (el) el.textContent = `Tip for ${formatDate(now)}`;
+    });
+
+    // Exit‑intent popup (once per session)
+    const popup = document.getElementById('exit-popup');
+    const closeBtn = document.getElementById('popup-close');
+    const popupLink = popup.querySelector('a');
+
+    function hidePopup() {
+      popup.classList.remove('show');
+      sessionStorage.setItem('popupShown', '1');
+    }
+
+    function showPopup() {
+      if (!sessionStorage.getItem('popupShown')) {
+        setTimeout(() => {
+          popup.classList.add('show');
+          if (typeof gtag === 'function') {
+            gtag('event', 'popup_shown', { 'event_category': 'Engagement', 'value': 1 });
+          }
+        }, 1000);
+      }
+    }
+
+    document.addEventListener('mouseleave', e => {
+      if (e.clientY <= 0) {
+        showPopup();
+      }
+    });
+
+    closeBtn.addEventListener('click', hidePopup);
+    popupLink.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'affiliate_click', {
+          'event_category': 'Affiliate',
+          'event_label': 'Exit‑intent popup',
+          'value': 1
+        });
+      }
+    });
+
+    // Track main CTA clicks
+    document.querySelectorAll('.btn').forEach(btn => {
+      if (btn.href && btn.href.includes('linkconnector.com')) {
+        btn.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'affiliate_click', {
+              'event_category': 'Affiliate',
+              'event_label': 'Hero or sticky CTA',
+              'value': 1
+            });
+          }
+        });
+      }
+    });
+
+    // Scroll tracking
+    let scrollFired = false;
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPercent > 50 && !scrollFired) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_50', { 'event_category': 'Engagement', 'value': 1 });
+        }
+        scrollFired = true;
+      }
+    });
+
+    // GA4 stub (replace YOUR_GA4_MEASUREMENT_ID)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_GA4_MEASUREMENT_ID', { 'send_page_view': true });
+
+    // Hotjar stub (replace YOUR_HOTJAR_SITE_ID)
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:YOUR_HOTJAR_SITE_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
