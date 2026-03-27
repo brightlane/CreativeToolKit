@@ -653,3 +653,113 @@
         <div class="col-12">
           <h3 class="section-subtitle">Español (ES)</h3>
           <p>Filmora es un editor de vídeo sencillo para YouTube, TikTok e Instagram. PDFelement te permite editar, convertir y firmar PDFs en cualquier dispositivo. UniConverter gestiona todo tipo de vídeos y archivos, EdrawMax y EdrawMind crean diagramas y mapas mentales profesionales, Dr.Fone y MobileTrans administran tus datos de teléfono, FamiSafe protege a tu familia, SelfyzAI mejora tus selfies
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#problem">Problem</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#howto">How‑To</a>
+        <a href="#comparisons">Comparisons</a>
+        <a href="#faq">FAQ</a>
+        <a href="mailto:support@wondershare.com">Contact support@wondershare.com</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Legal Notice</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="YouTube">YouTube</a>
+      </div>
+      <div class="footer-meta">
+        <p>Business / Entity name: CreativeToolSuite LLC</p>
+        <p>Contact email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+        <p class="current-year">© 2023–<script>document.write(new Date().getFullYear())</script> CreativeToolSuite LLC. All rights reserved.</p>
+        <p>Updated: March 2026</p>
+      </div>
+      <p>This website is a third‑party information and comparison resource, not an official partner of Wondershare. All product names and brands are used for educational and comparison purposes only and are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <span class="sticky-cta-text">Want the best full‑suite Wondershare deals?</span>
+    <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=sticky&utm_medium=cta&utm_campaign=global_wondershare" class="btn btn-sm">Get the best deals here</a>
+  </div>
+
+  <!-- Exit‑intent popup -->
+  <div class="popup-backdrop" id="exit-popup">
+    <div class="popup-content">
+      <h2 class="popup-title">Don’t miss the best Wondershare offers</h2>
+      <p class="popup-text">You’re one click away from the official Wondershare bundle that includes Filmora, PDFelement, EdrawMax, Dr.Fone, MobileTrans, FamiSafe, SelfyzAI, ToMoviee, ReelBot, and more tools in one ecosystem.</p>
+      <div>
+        <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=popup&utm_medium=exit&utm_campaign=global_wondershare" class="btn">Go to the offers</a>
+        <button type="button" class="btn btn-sm popup-btn-close" id="popup-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const formatDate = (date) => {
+      const options = { year: 'numeric', month: 'long', day: 'numeric' };
+      return date.toLocaleDateString('en-US', options);
+    };
+    const now = new Date();
+    const tipDate = document.getElementById('tip-date');
+    if (tipDate) tipDate.textContent = `Tip for ${formatDate(now)}`;
+
+    const popup = document.getElementById('exit-popup');
+    const closeBtn = document.getElementById('popup-close');
+
+    function hidePopup() {
+      popup.classList.remove('show');
+      sessionStorage.setItem('popupShown', '1');
+    }
+
+    function showPopup() {
+      if (!sessionStorage.getItem('popupShown')) {
+        setTimeout(() => {
+          popup.classList.add('show');
+        }, 1000);
+      }
+    }
+
+    document.addEventListener('mouseleave', e => {
+      if (e.clientY <= 0) showPopup();
+    });
+
+    closeBtn.addEventListener('click', hidePopup);
+
+    document.querySelectorAll('.btn').forEach(btn => {
+      if (btn.href && btn.href.includes('linkconnector.com')) {
+        btn.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'affiliate_click', {
+              'event_category': 'Affiliate',
+              'event_label': 'CTA click',
+              'value': 1
+            });
+          }
+        });
+      }
+    });
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_GA4_MEASUREMENT_ID', { 'send_page_view': true });
+
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:YOUR_HOTJAR_SITE_ID,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
