@@ -577,3 +577,272 @@
         </div>
       </div>
       <!-- Repeat the
+  <!-- Sticky CTA -->
+  <div class="sticky-cta">
+    <span class="sticky-cta-text">Ready to try the best tools?</span>
+    <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=sticky&utm_medium=bubble&utm_campaign=global_wondershare" class="btn btn-sm">Get Started Now</a>
+  </div>
+
+  <!-- Exit‑intent popup (only once per session) -->
+  <div class="popup-backdrop" id="exit-popup">
+    <div class="popup-content">
+      <h2 class="popup-title">Don’t leave yet</h2>
+      <p class="popup-text">You’re just one click away from getting the best deals on Filmora, PDFelement, EdrawMax, Dr.Fone, and many more.</p>
+      <div>
+        <a href="https://www.linkconnector.com/ta.php?lc=007949093934004532&atid=WondershareWeb&utm_source=popup&utm_medium=exit&utm_campaign=global_wondershare" class="btn">Go to the offers</a>
+        <button type="button" class="btn btn-sm popup-btn-close" id="popup-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily Tip section -->
+  <section id="daily-tip">
+    <div class="container">
+      <div class="lang-block active" data-lang="en">
+        <h2 class="section-title">Daily Tip</h2>
+        <small id="tip-date">Tip for March 27, 2026</small>
+        <div class="tip-block">
+          <div class="tip-title">How to turn any video into a story for TikTok with Filmora</div>
+          <p class="tip-text">Use Filmora’s auto‑cut, transitions, and text‑to‑speech to turn your long video into a short, engaging clip in under 5 minutes. Then export directly to TikTok‑friendly formats.</p>
+        </div>
+      </div>
+      <div class="lang-block" data-lang="es">
+        <h2 class="section-title">Consejo del día</h2>
+        <small id="tip-date-es">Consejo para 27 de marzo de 2026</small>
+        <div class="tip-block">
+          <div class="tip-title">Cómo convertir cualquier vídeo en una historia de TikTok con Filmora</div>
+          <p class="tip-text">Usa el corte automático, transiciones y voz‑por‑texto de Filmora para transformar tu vídeo largo en un clip corto y atractivo en menos de 5 minutos.</p>
+        </div>
+      </div>
+      <!-- You can add similar blocks for other languages later -->
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#problem">Problem</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#faq">FAQ</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms & Legal Notice</a>
+        <a href="https://example.com/contact">Contact</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Twitter">𝕏</a>
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="YouTube"> YouTube logo image</a>
+      </div>
+      <div class="footer-meta">
+        <p>Business / Entity name: CreativeToolSuite LLC</p>
+        <p>Contact email: <a href="mailto:contact@example.com">contact@example.com</a></p>
+        <p class="current-year">© 2023–<script>document.write(new Date().getFullYear())</script> CreativeToolSuite LLC. All rights reserved.</p>
+        <p>Updated: March 2026</p>
+      </div>
+      <p>This website is a third‑party information and comparison resource, not an official partner of Wondershare. All product names and brands are used for educational and comparison purposes only and are trademarks of their respective owners.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts (deferred) -->
+  <script>
+    // Language switching
+    const langButtons = document.querySelectorAll('.lang-button');
+    const langBlocks = document.querySelectorAll('.lang-block');
+    const links = document.querySelectorAll('.nav-link');
+
+    function showLang(lang) {
+      langBlocks.forEach(b => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+      langButtons.forEach(b => {
+        if (b.getAttribute('data-lang') === lang) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
+
+      // Update schema snippet
+      const titleElem = document.querySelector(`.lang-block[data-lang="${lang}"] h1`);
+      const descElem = document.querySelector(`.lang-block[data-lang="${lang}"] p`);
+      const titleText = titleElem ? titleElem.textContent.trim() : 'CreativeToolSuite';
+      const descText = descElem ? descElem.textContent.trim() : '';
+
+      const schemaJson = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": titleText,
+        "url": window.location.href,
+        "description": descText,
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": window.location.href
+            }
+          ]
+        },
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Which video editor works best for YouTube and TikTok?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Filmora combines AI shortcuts and one‑click exports for TikTok, YouTube, and Instagram in a user‑friendly interface."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the best PDF editor for notes and forms?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "PDFelement lets you highlight, annotate, fill forms, and sign PDFs across desktop and mobile devices."
+              }
+            }
+          ]
+        }
+      };
+      document.getElementById('schema-json').textContent = JSON.stringify(schemaJson);
+    }
+
+    langButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const lang = btn.getAttribute('data-lang');
+        showLang(lang);
+        window.history.pushState({}, '', window.location.pathname + '?lang=' + lang);
+      });
+    });
+
+    // Bootstrap from query param
+    const urlParams = new URLSearchParams(window.location.search);
+    const langParam = urlParams.get('lang');
+    if (langParam && document.querySelector(`.lang-button[data-lang="${langParam}"]`)) {
+      showLang(langParam);
+    } else {
+      showLang('en');
+    }
+
+    // Sticky nav highlight
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const href = e.currentTarget.getAttribute('data-href') || e.currentTarget.getAttribute('href').replace('#', '');
+        const section = document.getElementById(href);
+        if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Daily Tip: update date and rotate tip
+    const tipDateElem = document.getElementById('tip-date');
+    const tipDateEs = document.getElementById('tip-date-es');
+    const now = new Date();
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const dateString = now.toLocaleDateString('en-US', options);
+
+    if (tipDateElem) tipDateElem.textContent = `Tip for ${dateString}`;
+    if (tipDateEs) tipDateEs.textContent = `Consejo para ${dateString}`;
+
+    // (optional) You can rotate tips by changing innerHTML here every day
+
+    // Exit‑intent popup (once per session)
+    const popup = document.getElementById('exit-popup');
+    const closeBtn = document.getElementById('popup-close');
+    const popupLink = popup.querySelector('a');
+
+    function hidePopup() {
+      popup.classList.remove('show');
+      sessionStorage.setItem('popupShown', '1');
+    }
+
+    function showPopup() {
+      if (!sessionStorage.getItem('popupShown')) {
+        setTimeout(() => {
+          popup.classList.add('show');
+          // GA4 / GTM style event; you can replace with your real ID
+          if (typeof gtag === 'function') {
+            gtag('event', 'popup_shown', { 'event_category': 'Engagement', 'value': 1 });
+          }
+        }, 1000);
+      }
+    }
+
+    // Exit intent based on mouse cursor direction
+    document.addEventListener('mouseleave', e => {
+      if (e.clientY <= 0) {
+        showPopup();
+      }
+    });
+
+    closeBtn.addEventListener('click', hidePopup);
+    popupLink.addEventListener('click', () => {
+      // Track click on GA4
+      if (typeof gtag === 'function') {
+        gtag('event', 'affiliate_click', {
+          'event_category': 'Affiliate',
+          'event_label': 'Popup CTA',
+          'value': 1
+        });
+      }
+      // Optionally close after click
+      hidePopup();
+    });
+
+    // Track main CTA clicks
+    document.querySelectorAll('.btn').forEach(btn => {
+      if (btn.href && btn.href.includes('linkconnector.com')) {
+        btn.addEventListener('click', () => {
+          if (typeof gtag === 'function') {
+            gtag('event', 'affiliate_click', {
+              'event_category': 'Affiliate',
+              'event_label': 'Hero CTA',
+              'value': 1
+            });
+          }
+        });
+      }
+    });
+
+    // Scroll tracking (for Core Web Vitals / engagement)
+    let scrollFired = false;
+    window.addEventListener('scroll', () => {
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPercent > 50 && !scrollFired) {
+        if (typeof gtag === 'function') {
+          gtag('event', 'scroll_50', { 'event_category': 'Engagement', 'value': 1 });
+        }
+        scrollFired = true;
+      }
+    });
+
+    // GA4 snippet (replace YOUR_GA4_MEASUREMENT_ID)
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'YOUR_GA4_MEASUREMENT_ID', { 'send_page_view': true });
+
+    // Hotjar (replace YOUR_HOTJAR_SITE_ID)
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:YOUR_HOTJAR_SITE_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+</body>
+</html>
