@@ -4,10 +4,10 @@ name: Daily Blog Generator
 on:
   push:
     branches:
-      - main  # or any other branch you want to trigger the action
+      - main  # Trigger on push to the main branch
   pull_request:
     branches:
-      - main  # or any other branch you want to trigger the action
+      - main  # Trigger on pull request to the main branch
 
 jobs:
   generate-blog:
@@ -18,7 +18,7 @@ jobs:
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # Updated to a supported version
+          python-version: '3.9'  # You can change the version if needed
 
       # Step to check out the code from the repository
       - name: Checkout code
@@ -28,16 +28,16 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt  # Adjust this line if you're using other dependencies
+          pip install -r requirements.txt  # Adjust if you're using other dependencies
 
       # Step to run the blog generation script (or any Python script you want to run)
       - name: Generate blog posts
         run: |
-          python generate_blog.py  # Replace with your script name
+          python generate_blog.py  # Replace with your actual script name
 
       # Optional: Save artifacts or log output
       - name: Upload generated blog posts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4  # Updated to v4
         with:
           name: generated-blogs
-          path: ./generated_blogs/  # Adjust this path based on your output directory
+          path: ./generated_blogs/  # Adjust this path based on where your output is
