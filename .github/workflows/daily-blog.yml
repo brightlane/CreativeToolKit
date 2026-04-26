@@ -3,40 +3,38 @@ name: Daily Blog Generator
 on:
   push:
     branches:
-      - main  # Trigger on push to the main branch
+      - main  # Trigger when pushing to the main branch
   pull_request:
     branches:
-      - main  # Trigger on pull request to the main branch
+      - main  # Trigger when there is a pull request to the main branch
 
 jobs:
-  generate-blog:
-    runs-on: ubuntu-latest  # Use the latest Ubuntu runner image
+  build:
+    runs-on: ubuntu-latest  # Using the latest Ubuntu runner
 
     steps:
-      # Step to set up Python 3.9 (you can change the version if needed)
+      # Set up Python with a valid version (e.g., 3.9)
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # Specify the version of Python you are using
+          python-version: '3.9'
 
-      # Step to check out the code from the repository
+      # Check out the repository's code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Optional: Skip this if you don’t have dependencies
-      # - name: Install dependencies
-      #   run: |
-      #     python -m pip install --upgrade pip
-      #     pip install -r requirements.txt  # Remove this line if not needed
+      # Skip installing dependencies if you don't need it
+      - name: Skip dependencies installation
+        run: echo "Skipping dependencies installation"
 
-      # Step to run your blog generation script (change the filename if necessary)
-      - name: Generate blog posts
+      # Run your blog generation script (replace with your actual script name and path)
+      - name: Generate blog post
         run: |
-          python generate_blog.py  # Replace this with your actual script name
+          python generate_blog.py  # Replace with your actual script name and ensure it exists in the repo
 
-      # Step to upload generated files (replace with your actual path if necessary)
-      - name: Upload generated blog posts
-        uses: actions/upload-artifact@v4  # Make sure you're using the latest version (v4)
+      # Upload generated blog posts as an artifact (adjust the path as necessary)
+      - name: Upload generated blog
+        uses: actions/upload-artifact@v4
         with:
           name: generated-blogs
-          path: ./generated_blogs/  # Adjust this path based on where your generated blog posts are saved
+          path: ./generated_blogs/  # Adjust this path based on where your generated blogs are saved
