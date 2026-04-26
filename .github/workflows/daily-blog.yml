@@ -35,9 +35,9 @@ jobs:
         run: |
           python generate_blog.py  # Replace with your actual script name
 
-      # Optional: Save artifacts or log output
+      # Upload generated blog posts or other output
       - name: Upload generated blog posts
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v4  # Updated to v4 to fix the deprecation issue
         with:
           name: generated-blogs
-          path: ./generated_blogs/  # Adjust this path based on where your output is
+          path: ./generated_blogs/  # Adjust this path based on where your output is located
