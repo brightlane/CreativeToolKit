@@ -1,40 +1,25 @@
-name: Daily Blog Generator
+name: Generate Blog Workflow
 
 on:
   push:
     branches:
-      - main  # Trigger when pushing to the main branch
+      - main
   pull_request:
     branches:
-      - main  # Trigger when there is a pull request to the main branch
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest  # Using the latest Ubuntu runner
+  generate-blog:
+    runs-on: ubuntu-latest
 
     steps:
-      # Set up Python with a valid version (e.g., 3.9)
-      - name: Set up Python 3.9
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.9'
 
-      # Check out the repository's code
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Skip installing dependencies if you don't need it
-      - name: Skip dependencies installation
-        run: echo "Skipping dependencies installation"
-
-      # Run your blog generation script (replace with your actual script name and path)
-      - name: Generate blog post
-        run: |
-          python generate_blog.py  # Replace with your actual script name and ensure it exists in the repo
-
-      # Upload generated blog posts as an artifact (adjust the path as necessary)
-      - name: Upload generated blog
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-blogs
-          path: ./generated_blogs/  # Adjust this path based on where your generated blogs are saved
+      - name: Run generate blog script
+        run: python generate_blog.py  # Ensure this file is in the root directory
