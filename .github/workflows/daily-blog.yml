@@ -1,6 +1,5 @@
 name: Daily Blog Generator
 
-# Trigger the workflow on push or pull request events to the main branch
 on:
   push:
     branches:
@@ -11,33 +10,33 @@ on:
 
 jobs:
   generate-blog:
-    runs-on: ubuntu-latest  # Set the runner OS (Ubuntu)
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner image
 
     steps:
-      # Step to set up Python version 3.9
+      # Step to set up Python 3.9 (you can change the version if needed)
       - name: Set up Python 3.9
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'  # You can change the version if needed
+          python-version: '3.9'  # Specify the version of Python you are using
 
       # Step to check out the code from the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Skip installing dependencies if not needed
+      # Optional: Skip this if you don’t have dependencies
       # - name: Install dependencies
       #   run: |
       #     python -m pip install --upgrade pip
-      #     pip install -r requirements.txt  # Commented out if no dependencies needed
+      #     pip install -r requirements.txt  # Remove this line if not needed
 
-      # Step to run the blog generation script (or any Python script you want to run)
+      # Step to run your blog generation script (change the filename if necessary)
       - name: Generate blog posts
         run: |
-          python generate_blog.py  # Replace with your actual script name
+          python generate_blog.py  # Replace this with your actual script name
 
-      # Upload generated blog posts or other output
+      # Step to upload generated files (replace with your actual path if necessary)
       - name: Upload generated blog posts
-        uses: actions/upload-artifact@v4  # Updated to v4 to fix the deprecation issue
+        uses: actions/upload-artifact@v4  # Make sure you're using the latest version (v4)
         with:
           name: generated-blogs
-          path: ./generated_blogs/  # Adjust this path based on where your output is located
+          path: ./generated_blogs/  # Adjust this path based on where your generated blog posts are saved
